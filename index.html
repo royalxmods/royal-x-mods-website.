@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RoyalXMods</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#050505;
+    color:white;
+}
+
+header{
+    padding:15px;
+    text-align:center;
+    background:black;
+    box-shadow:0 0 15px cyan;
+}
+
+.container{
+    padding:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid cyan;
+    background:#000;
+    color:white;
+    margin-bottom:20px;
+}
+
+.item{
+    display:flex;
+    align-items:center;
+    background:#0d0d0d;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:15px;
+    box-shadow:0 0 10px cyan;
+}
+
+.icon{
+    width:60px;
+    height:60px;
+    border-radius:12px;
+    margin-right:15px;
+}
+
+.info{
+    flex:1;
+}
+
+.info h3{
+    margin:0;
+    color:cyan;
+}
+
+.tag{
+    display:inline-block;
+    font-size:11px;
+    padding:3px 8px;
+    border-radius:6px;
+    margin-bottom:5px;
+}
+
+.mod{ background:#ff0066; }
+.apk{ background:#00ffcc; color:black; }
+.modmenu{ background:#ff0066; }
+.shader.{ background:#00ffcc; color:orange; }
+.release{ background:#00ffcc; color: blue; }
+
+.info p{
+    margin:2px 0;
+    font-size:13px;
+    color:#ccc;
+}
+
+.item button{
+    padding:10px 14px;
+    border:none;
+    border-radius:8px;
+    background:cyan;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>MODS & APK DOWNLOADS</h2>
+</header>
+
+<div class="container">
+
+    <!-- SEARCH -->
+    <input type="text" id="search" placeholder="Search mods or APKs..." onkeyup="searchItems()">
+
+    <!-- MOD -->
+    <div class="item">
+        <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Android_robot.svg">
+        <div class="info">
+            <span class="tag mod">MOD</span>
+            <h3>Hyper drift Mod menu</h3>
+            <p>Unlimited money</p>
+            <p>Version: 1.23.4| Size: 75 MB</p>
+        </div>
+        <button onclick="download('https://speed.hetzner.de/100MB.bin')">Download</button>
+    </div>
+    
+<header>
+    <h2>APK DOWNLOADS</h2>
+</header>
+
+    <div class="item">
+        <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Android_robot.svg">
+        <div class="info">
+            <span class="tag mod">APK</span>
+            <h3>Roblox</h3>
+            <p>Play Roblox and Explore millions of games and add other players</p>
+            <p>Version: 2.702.632 | Size: 174MB</p>
+        </div>
+        <button onclick="download('https://speed.hetzner.de/100MB.bin')">Download</button>
+    </div>
+
+</div>
+
+<script>
+function searchItems(){
+    let input = document.getElementById("search").value.toLowerCase();
+    let items = document.getElementsByClassName("item");
+
+    for(let i=0;i<items.length;i++){
+        let text = items[i].innerText.toLowerCase();
+        items[i].style.display = text.includes(input) ? "flex" : "none";
+    }
+}
+
+function download(link){
+    window.location.href = link; // direct download (Android safe)
+}
+</script>
+
+</body>
+</html>
