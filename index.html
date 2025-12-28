@@ -1,39 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>RoyalXMods</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyDownloadSite</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #fff;
+        }
+        header {
+            background: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            letter-spacing: 2px;
+            box-shadow: 0 2px 5px #000;
+        }
+        .search-bar {
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar input {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+        .search-bar button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            background: #ff3d00;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .section {
+            padding: 20px;
+        }
+        .item {
+            background: #1a1a1a;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item button {
+            padding: 8px 15px;
+            background: #00e676;
+            border: none;
+            color: #000;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>MyDownloadSite</header>
 
-<style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#050505;
-    color:white;
-}
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search files, APKs, mods...">
+        <button onclick="searchItems()">Search</button>
+    </div>
 
-header{
-    padding:15px;
-    text-align:center;
-    background:black;
-    box-shadow:0 0 15px cyan;
-}
+    <div class="section" id="fileSection">
+        <div class="item">
+            <span>Example APK 1</span>
+            <button onclick="downloadFile('ExampleAPK1.apk')">Download</button>
+        </div>
+        <div class="item">
+            <span>Example APK 2</span>
+            <button onclick="downloadFile('ExampleAPK2.apk')">Download</button>
+        </div>
+        <div class="item">
+            <span>Example Mod 1</span>
+            <button onclick="downloadFile('ExampleMod1.apk')">Download</button>
+        </div>
+    </div>
 
-.container{
-    padding:20px;
-}
+    <script>
+        function downloadFile(fileName) {
+            alert("Starting download: " + fileName);
+            // You can link actual file URLs here
+            // window.location.href = "/downloads/" + fileName;
+        }
 
-input{
-    width:100%;
-    padding:12px;
-    border-radius:10px;
-    border:1px solid cyan;
-    background:#000;
-    color:white;
-    margin-bottom:20px;
-}
-
+        function searchItems() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.item');
+            items.forEach(item => {
+                const name = item.querySelector('span').textContent.toLowerCase();
+                if(name.includes(input)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
 .item{
     display:flex;
     align-items:center;
@@ -159,4 +232,5 @@ function download(link){
 
 </body>
 </html>
+
 
