@@ -111,9 +111,18 @@ input{
             <h3>Hyper drift Mod menu</h3>
             <p>Unlimited money</p>
             <p>Version: 1.23.4| Size: 75 MB</p>
-        </div>
-        <button onclick="download('https://speed.hetzner.de/100MB.bin')">Download</button>
-    </div>
+        <button onclick="startFake()">Download</button>
+
+<div id="downloadBox" class="box" style="display:none">
+  <h3>Preparing download...</h3>
+
+  <div class="progress-bg">
+    <div id="bar" class="progress-bar"></div>
+  </div>
+
+  <p id="status">0%</p>
+</div>
+
     
 <header>
     <h2>APK DOWNLOADS</h2>
@@ -150,3 +159,4 @@ function download(link){
 
 </body>
 </html>
+
